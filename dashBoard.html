@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<head>
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <link rel="icon" href="icon.png">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Dashboard</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        #logo {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            z-index: +1;
+        }
+        
+        #log1 {
+            position: fixed;
+            top: 5px;
+            left: 10px;
+            z-index: +1;
+            font-family: "Trebuchet MS", Helvetica, sans-serif;
+            font-size: 20pt;
+            color: #3fb0ac;
+        }
+        
+        #log2 {
+            position: fixed;
+            top: 5px;
+            left: 86px;
+            z-index: +1;
+            font-family: "Trebuchet MS", Helvetica, sans-serif;
+            font-size: 20pt;
+            color: #dddfd4;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <!--                <img src="logo.PNG" id="logo" height=50>-->
+                <span id="log1">match</span>
+                <span id="log2">point.</span>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#div1">Profile</a></li>
+                    <li><a href="#div2">Dashboard</a></li>
+                    <li id="logOut"><a href="index.html">Log out</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <h2 class="sub-header" id="div1">Profile</h2>
+
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Name">
+                </div>
+
+                <label>Gender</label>
+                <select class="form-control" id='gender'>
+
+                    <option value="N/A">Select your gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Others">Others</option>
+                </select>
+
+                <!--
+                <div class="form-group">
+
+                    <label>Phone</label>
+                    <input type="text" class="form-control" id="phone" placeholder="Phone">
+                </div>
+-->
+                <label>Sports</label>
+                <select class="form-control" id='sports'>
+                    <option value="0">Select your sports</option>
+                    <option value="Basketball">Basketball</option>
+                    <option value="Tennis">Tennis</option>
+                    <option value="Soccer">Soccer</option>
+                    <option value="Volleyball">Volleyball</option>
+                    <option value="Tennis">Tennis</option>
+                    <option value="Squash">Squash</option>
+                    <option value="Workout- Cardio">Workout- Cardio</option>
+                    <option value="Workout- Weights">Workout- Weights</option>
+                    <option value="Frisbee">Frisbee</option>
+                    <option value="Yoga">Yoga</option>
+                </select>
+                <label>Skill Level</label>
+                <select class="form-control" id='level'>
+                    <option value="N/A">Select your skill level</option>
+                    <option value="Beginner">Beginner</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="Advanced">Advanced</option>
+                    <option value="On-and-off Player">On-and-off Player</option>
+                </select>
+
+                <label>Location</label>
+                <select class="form-control" id='location'>
+                    <option value="0">Select your location</option>
+                    <option value="NCRB">NCRB</option>
+                    <option value="CCRB">CCRB</option>
+                </select>
+
+                <label>Time</label>
+
+                <select class="form-control" id='time'>
+                    <option value="N/A">Select your time</option>
+                    <option value="8am">8am</option>
+                    <option value="9am">9am</option>
+                    <option value="10am">10am</option>
+                    <option value="11am">11am</option>
+                    <option value="12pm">12pm</option>
+                    <option value="1pm">1pm</option>
+                    <option value="2pm">2pm</option>
+                    <option value="3pm">3pm</option>
+                    <option value="4pm">4pm</option>
+                    <option value="5pm">5pm</option>
+                    <option value="6pm">6pm</option>
+                    <option value="7pm">7pm</option>
+                    <option value="8pm">8pm</option>
+                </select>
+                <br>
+                <button class="btn btn-lg btn-primary btn-block" id="btn">Search</button>
+
+            </div>
+            <div class="col-md-8">
+
+                <h2 class="sub-header" id="div2">Matching here...</h2>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Gender</th>
+                                <th>Time</th>
+                                <th>Skill Level</th>
+                                <th>Email</th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody id="tbody">
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var ref = new Firebase('https://brilliant-inferno-4938.firebaseio.com/');
+        var authData = ref.getAuth();
+        var email_auth = "";
+        ref.child(authData.uid).on("value", function (snapshot) {
+            var data = snapshot.val();
+            email_auth = data.email;
+            $("#name").val(data.name);
+            $("#gender").val(data.gender);
+            // $("#phone").val(data.phone);
+            $("#sports").val(data.sports);
+            $("#location").val(data.location);
+            $("#level").val(data.level);
+            // data is { "name": "Fred", "age": 53 }
+            // data.name === "Fred"
+            // data.age === 53
+        });
+
+
+        $("#btn").click(
+            function () {
+                $("#tbody").html("");
+                ref.child(authData.uid).update({
+                    "name": $("#name").val(),
+                    "gender": $("#gender").val(),
+                    "level": $("#level").val(),
+                    "sports": $("#sports").val(),
+                    "location": $("#location").val(),
+                    "time": $("#time").val()
+                });
+
+
+
+
+                ref.orderByChild("sports").equalTo($("#sports").val()).on("child_added", function (snapshot) {
+                    if ((snapshot.val().email !== email_auth) && (snapshot.val().location == $("#location").val())) {
+
+                        $("#tbody").append("<tr><td>" + snapshot.val().name + "</td><td>" + snapshot.val().gender + "</td><td>" + snapshot.val().time + "</td><td>" + snapshot.val().level + "</td><td><button class='btn btn-lg btn-primary btn-block' onclick='window.open(&quot;mailto:" + snapshot.val().email + "&quot;)'>Invite</button></td> </tr>");
+                    }
+                });
+
+                //" + snapshot.val().email + "<button class='btn btn-lg btn-primary btn-block' id="submit">Sign up</button>
+
+
+            });
+
+        $("logOut").click(
+            function () {
+                ref.unauth();
+            });
+    </script>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
+    </script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="assets/js/vendor/holder.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+
+</html>

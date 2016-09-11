@@ -1,0 +1,23 @@
+    body{
+    margin:0px;
+    padding:0px;      
+    }
+
+    #logo{
+        padding-bottom: 20px;
+    }
+
+    #topContainer{
+        background-image: url("../background.jpg");
+        height: 800px;
+        width: 100%;
+        background-size: cover;
+    }
+
+    #my_heading{
+    color:white;
+    }
+
+     #my_container{
+    padding-top:60px;
+     }
